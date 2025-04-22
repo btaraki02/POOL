@@ -14,14 +14,7 @@ int ft_fibonacci(int index)
  {
     return - 1;
  }
- while(j < index)
- {
-    son = a + b;
-    a = b;
-    b = son;
-    j++;
- }
- return a;
+   return ft_fibonacci( index - 1) + ft_fibonacci(index -2);
 }
 /*int main()
 {

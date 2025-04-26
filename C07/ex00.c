@@ -1,6 +1,6 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+//#include <unistd.h>
+//#include <stdio.h>
+#include <stdlib.h> 
 int ft_strlen(char *s1)
 {
     int i = 0;
@@ -23,9 +23,9 @@ char *ft_strdup(char *src)
     dest[i] = '\0';
     return dest;
 }
-int main()
+/*int main()
 {
-    char str[] = "bilal";
+    char str[] = "bilal TARAKI";
     char *p = ft_strdup(str);
     char *temp = p;
     while(*temp != '\0')
@@ -35,4 +35,4 @@ int main()
     }
     printf("\n");
     free(p);
-}
+}*/

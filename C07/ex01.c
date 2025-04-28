@@ -6,11 +6,11 @@ int *ft_range(int min, int max)
         return (0);
     }	
     int i = 0;
-    int *arr = (int *)malloc(sizeof(int) * (max - min));
+    int *range = (int *)malloc(sizeof(int) * (max - min));
     while(i + min < max)
     {
-        arr[i] = min + i;
+        range[i] = min + i;
         i++;
     }
-    return arr;
+    return range;
 }

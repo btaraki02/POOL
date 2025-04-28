@@ -10,10 +10,9 @@ int ft_strlen(char *str)
     }
     return i;
 }
-char *ft_strjoin(int size, char **strs, char *sep)
+int ft_total(char **strs , char *sep , int size)
 {
-    int i = 0;
-    int j;
+    int i =0;
     int total_size = 0;
     while(i < size)
     {
@@ -24,12 +23,14 @@ char *ft_strjoin(int size, char **strs, char *sep)
     // size - 1 = number of sep ;
     // strlen(sep) = "," or "-" or " - "; ......
     // +1 = '\0';
+    return total_size;
 
-    char *strjoi = (char *)malloc(sizeof(char) * total_size);
-    if(!strjoi)
-        return NULL;
+}
+void ft_strj(char **strs , char *strjoi , char *sep ,int size)
+{
     int k = 0;
-    i = 0;
+   int  i = 0;
+   int j;
     while(i < size)
     {
        j = 0;
@@ -49,6 +50,16 @@ char *ft_strjoin(int size, char **strs, char *sep)
        i++;
     }
     strjoi[k] = '\0';
+}
+char *ft_strjoin(int size, char **strs, char *sep)
+{
+    int total_size = ft_total(strs,sep,size);
+
+    char *strjoi = (char *)malloc(sizeof(char) * total_size);
+
+    if(!strjoi)
+        return NULL;
+    ft_strj(strs,strjoi,sep,size);
     return strjoi;
 
 }

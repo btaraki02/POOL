@@ -5,12 +5,10 @@ char *ft_strncpy(char *dest, char *src, unsigned int n)
     int i = 0;
     while(*dest != '\0' && i < n )
     {
-        *src = *dest;
-        dest++;
-        src++;
+        src[i] = dest[i];
         i++;
     }
-    *src ='\0';
+    src[i] ='\0';
     return (src);
 }
 /*int main()

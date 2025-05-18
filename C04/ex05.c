@@ -7,7 +7,6 @@ int ft_strlen(char *str){
         i++;
     return i;
 }
-
 int doublechar(char *str)
 {
     int i = 0;
@@ -25,7 +24,6 @@ int doublechar(char *str)
     }
     return 0;
 }
-
 int is_valid_base(char *str)
 {
     int i = 0;
@@ -39,7 +37,6 @@ int is_valid_base(char *str)
         return 1;
     return doublechar(str);
 }
-
 int parse_sign(char **str)
 {
     int sign = 1;
@@ -68,7 +65,6 @@ int checkchar(char c, char *base)
     }
     return 0;
 }
-
 int ft_find_base(char *str, char *base)
 {
     while (*str)
@@ -87,7 +83,6 @@ int ft_poi(int a, int b)
     else
         return ft_poi(a, b - 1) * a;
 }
-
 int index_in_base(char c, char *base)
 {
     int i = 0;
@@ -99,7 +94,6 @@ int index_in_base(char c, char *base)
     }
     return -1;
 }
-
 int meat_funic(char *str, char *base, int basevalue, int p)
 {
     int i = index_in_base(*str, base);
@@ -111,7 +105,6 @@ int meat_funic(char *str, char *base, int basevalue, int p)
     else
         return meat_funic(str + 1, base, basevalue, p - 1) + (i * ft_poi(basevalue, p));
 }
-
 int ft_atoi_base(char *str, char *base)
 {
     if (is_valid_base(base))
@@ -130,7 +123,6 @@ int ft_atoi_base(char *str, char *base)
 
     return meat_funic(start, base, basevalue, len - 1) * sign;
 }
-
 int main()
 {
     char *base = "0123456789ABCDEF";

@@ -8,7 +8,6 @@ int ft_strcmp(char *s1 , char *s2)
     }
     return (*s1 - *s2);//er
 }
-
 void ft_swap(char **s1 , char **s2)
 {
     char *swap;
@@ -45,7 +44,6 @@ void ft_puts(char *argv)
     }
     write(1 , "\n" ,1);
 }
-
 int main(int argc, char *argv[])
 {
     ft_sort(argc -1,argv + 1);//a.out ;}

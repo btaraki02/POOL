@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-
-
 typedef struct s_stock_str
 {
 int size;
@@ -54,30 +52,3 @@ struct s_stock_str *ft_strs_to_tab(int ac, char **av)
     tnt[i].str = NULL;
     return tnt;
 }
-/*int main(int argc , char **argv)
-{
-    int i = 0;
-    t_stock_str *pool = ft_strs_to_tab(argc,argv);
-        if (!pool)
-    {
-        printf("Memory allocation failed.\n");
-        return 1;
-    }
-    while (pool[i].str != NULL)
-    {
-        printf("Original string: %s\n", pool[i].str);
-        printf("Copied string: %s\n", pool[i].copy);
-        printf("Length: %d\n\n", pool[i].size);
-        i++;
-    }
-
-    i = 0;
-    while (pool[i].str != NULL)
-    {
-        free(pool[i].copy);
-        i++;
-    }
-    free(pool);
-
-    return 0;
-}*/

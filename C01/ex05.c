@@ -1,15 +1,8 @@
-//#include <stdio.h>
 #include <unistd.h>
 void ft_putstr(char *str)
 {
- while(*str != '\0')
+ while(*str)
  {
     write( 1 ,str++, 1);
  }
 }
-/*int main()
-{
-    char array[] = "HI BILAL";
-    char *str = array;
-    ft_putstr(str);
-}*/

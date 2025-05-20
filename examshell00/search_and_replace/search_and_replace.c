@@ -12,31 +12,23 @@
 
 #include <unistd.h>
 
-void	ft_search_and_replace(char *str, char c, char d)
+int main(int argc, char **argv)
 {
-	int	i = 0;
-
-	while (str[i])
+	if (argc != 4 || argv[2][1] || argv[3][1]) // one char
 	{
-		if (str[i] == c)
-			str[i] = d;
+		write(1, "\n", 1);
+		return 0;
+	}
+
+	int i = 0;
+	while (argv[1][i])
+	{
+		if (argv[1][i] == argv[2][0])
+			write(1, &argv[3][0], 1);
+		else
+			write(1, &argv[1][i], 1);
 		i++;
 	}
-}
-
-void	ft_putstr(char *str)
-{
-	while (*str)
-		write(1, str++, 1);
-}
-
-int	main(int argc, char **argv)
-{
-	if (argc == 4 && argv[2][1] == '\0' && argv[3][1] == '\0')
-	{
-		ft_search_and_replace(argv[1], argv[2][0], argv[3][0]);
-		ft_putstr(argv[1]);
-	}
 	write(1, "\n", 1);
-	return (0);
+	return 0;
 }

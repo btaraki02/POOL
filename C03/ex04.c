@@ -1,19 +1,18 @@
-//#include <stdio.h>
 #include <unistd.h>
 char *ft_strstr(char *str, char *to_find)
 {
-    int i = 0;
-    int j;
+    int i =0;
+    int len;
     if (!to_find[0])
     return str;
  while(str[i])
  {
-    j = 0;
-    while(to_find[j] && str[i + j] && to_find[j] == str[i + j])
+    len = 0;
+    while(to_find[len] && str[i + len] && to_find[len] == str[i + len])
     {
-        j++;
+        len++;
     }
-    if(!to_find[j])
+    if(!to_find[len])
     {
         return (&str[i]);
     }

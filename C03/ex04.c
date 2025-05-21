@@ -1,26 +1,22 @@
-//#include <stdio.h>
 #include <unistd.h>
 char *ft_strstr(char *str, char *to_find)
 {
-    if (!*to_find)
+    int i =0;
+    int len;
+    if (!to_find[0])
     return str;
- while(*str != '\0')
+ while(str[i])
  {
-    char *start = str;
-    char *temp_find = to_find;
-    if(*str == *to_find)
+    len = 0;
+    while(to_find[len] && str[i + len] && to_find[len] == str[i + len])
     {
-        while(*temp_find != '\0' &&  *temp_find == *start )
-        {
-            temp_find++;
-            start++;
-        }
-        if(*temp_find == '\0')
-        {
-            return str;
-        }
+        len++;
     }
-    str++;
+    if(!to_find[len])
+    {
+        return (&str[i]);
+    }
+    i++;
  }
  return NULL;
 }

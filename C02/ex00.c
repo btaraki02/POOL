@@ -1,7 +1,7 @@
 #include <unistd.h>
 char *ft_strcpy(char *dest, char *src)
 {
-    while(*dest != '\0')
+    while(*dest)
     {
         *dest = *src;
         dest++;

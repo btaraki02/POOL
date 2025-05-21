@@ -3,11 +3,11 @@
 char *ft_strncat(char *dest, char *src, unsigned int nb)
 {
     char *start = dest;
-    while(*dest != '\0')
+    while(*dest )
     {
         dest++;
     }
-    while(*src != '\0' && nb > 0)
+    while(*src && nb > 0)
     {
         *dest = *src;
         dest++;

@@ -3,12 +3,12 @@
 char *ft_strcat(char *dest, char *src)
 {
     char *start = dest;
-    while(*dest != '\0')
+    while(*dest)
     {
         dest++;
     }
     int i = 0;
-    while(src[i] != '\0')
+    while(src[i])
     {
         dest[i] = src[i];
         i++;

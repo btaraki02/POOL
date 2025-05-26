@@ -1,30 +1,23 @@
 #include <unistd.h>
-void ulstr(char *str)
+
+int main(int argc, char **argv)
 {
     int i = 0;
-    while(str[i])
-    {
-            if(str[i] <= 'z' && str[i] >= 'a')
-    {
-        str[i] = str[i] - 32;
-    }
-    else if(str[i] <= 'Z' && str[i] >= 'A')
-    {
-        str[i] = str[i] + 32;
-    }
-    write(1 , &str[i]  ,1);
-    i++;
-    }
+    char c;
 
-}
-int main(int argc , char **argv)
-{
-    if(argc < 2)
+    if (argc == 2)
     {
-        write(1 , "\n" , 1);
-        return 0;
+        while (argv[1][i])
+        {
+            c = argv[1][i];
+            if (c >= 'a' && c <= 'z')
+                c -= 32;
+            else if (c >= 'A' && c <= 'Z')
+                c += 32;
+            write(1, &c, 1);
+            i++;
+        }
     }
-    ulstr(argv[1]);
-    write(1 , "\n" ,1);
-  
+    write(1, "\n", 1);
+    return 0;
 }

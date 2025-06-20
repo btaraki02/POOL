@@ -1,27 +1,23 @@
-int     ft_atoi(const char *str)
+#include <unistd.h>
+int	ft_atoi(const char *str)
 {
-    int nigativ = 1;
-    int result = 0;
-        while(*str == 32 ||(*str >= 9 && *str <= 13))
-        {
-            str++;
-        }
-        if(*str == '-' || *str == '+')
-        {
-            if(*str == '-')
-            {
-                nigativ = !nigativ;
-            }
-            str++;
-        }
-        while(*str <= '9' && *str >= '0')
-        {
-            result = result * 10 + (*str - '0');
-            str++;
-        }
-    if(!nigativ)
+    int i = 0;
+    char c;
+    int resu = 0;
+    int sing = 1;
+    while(str[i] == 32 || str[i] == '\t') i++;
+    while(str[i] == '+' || str[i] == '-')
     {
-        result = -result;
+        if(str[i] == '-')
+        {
+            sing = -sing; 
+        }
+        i++;
     }
-    return result;
+        while(str[i] >= '0' && str[i] <= '9')
+        {
+            resu = resu * 10 + (str[i] - '0');
+            i++;
+        }
+    return (resu * sing);
 }

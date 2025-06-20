@@ -1,17 +1,17 @@
 #include <unistd.h>
-void rotone(char *str)
+void ulstr(char *str)
 {
     int i = 0;
     char c;
     while(str[i])
     {
         c = str[i];
-        if((c >= 'a' && c <= 'y') ||(c >= 'A' && c <= 'Y'))
+        if((c >= 'A' && c <= 'Y') || (c >= 'a' && c <= 'y' ))
         {
-            c  +=1;
+            c += 1;
             write(1 , &c ,1);
         }
-        else if(c == 'z')
+        else if( c == 'z')
         {
             write(1 , "a" ,1);
         }
@@ -25,13 +25,12 @@ void rotone(char *str)
         }
         i++;
     }
-
 }
-int main(int argc,char **argv)
+int main(int argc , char **argv)
 {
     if(argc == 2)
     {
-        rotone(argv[1]);
+        ulstr(argv[1]);
     }
     write(1 , "\n" ,1);
     return 0;

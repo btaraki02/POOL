@@ -1,5 +1,4 @@
 #include <stdlib.h>
-
 int ft_sep(char c)
 {
     return (c == ' ' || c == '\n' || c == '\t');

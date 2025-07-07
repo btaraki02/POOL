@@ -1,23 +1,23 @@
 #include <unistd.h>
-int ft_kayna(char *str , char c , int i)
+int ft_dob(char *str,char c,int len)
 {
-    int j = 0;
-    while(j < i)
+    int i = 0;
+    while(i < len)
     {
-        if(str[j] == c)
+        if(str[i] == c)
         {
             return 0;
         }
-        j++;
+        i++;
     }
     return 1;
 }
-int ft_dobl(char *str , char c)
+int ft_chack(char *str,char c)
 {
-    int i = 0;
+    int i =0;
     while(str[i])
     {
-        if(c == str[i])
+        if(str[i] == c)
         {
             return 1;
         }
@@ -28,17 +28,17 @@ int ft_dobl(char *str , char c)
 void inter(char *s1,char *s2)
 {
     int i = 0;
+    int j = 0;
     while(s1[i])
     {
-        if((ft_kayna(s1,s1[i],i) && ft_dobl(s2,s1[i])))
+        if(ft_dob(s1,s1[i],i) && ft_chack(s2,s1[i]))
         {
             write(1 , &s1[i] ,1);
         }
         i++;
     }
-
 }
-int main(int argc , char **argv)
+int main(int argc ,char **argv)
 {
     if(argc == 3)
     {

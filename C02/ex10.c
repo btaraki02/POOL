@@ -1,27 +1,22 @@
-//#include <stdio.h>
-#include <unistd.h>
+int ft_strlen(char *s)
+{
+    int i = 0;
+    while(s[i]) i++;
+    return i;
+}
 unsigned int ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-    unsigned int number = 0;
-    while(src[number] != '\0' && number < size - 1)
+    unsigned int  nb = ft_strlen(src);
+    unsigned int  i = 0;
+    if(size > 0)
     {
-        dest[number] = src[number];
-        number++;
+    while(src[i] && i < size - 1)
+    {
+        dest[i] = src[i];
+        i++;
     }
-    if (size > 0)
-    dest[number] = '\0';
+        dest[i] = '\0';
+    }
 
-    while(src[number] != '\0')
-    number++;
-
-    return (number);
+    return nb;
 }
-/*int main()
-{
-    char array[] = "HI BILAL TARAKI WELCOME TO MY GITHUB NIGA!!";
-    char dest[9];
-    unsigned int size = sizeof(dest) ;
-    unsigned int len = ft_strlcpy(dest,array,size);
-    printf("%s\n",dest);
-    printf("%u\n",len);
-}*/

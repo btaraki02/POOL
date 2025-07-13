@@ -1,41 +1,37 @@
-//#include <stdio.h>
-#include <unistd.h>
-char *ft_strcapitalize(char *str)
+char ft_p(char *str)
 {
     int i = 0;
-    int new_Word_ = 1;
-    while(str[i] != '\0')
+    while(*(str + i))
     {
-        if(str[i] >= 'a' && str[i] <= 'z')
+        if(*(str + i) >= 'A' && *(str + i) <= 'Z')
         {
-            if(new_Word_)
-            {
-                str[i] -=32;
-            }
+            *(str + i) +=32;
         }
-        else if(str[i] >= 'A' && str[i] <= 'Z')
-        {
-            if(!new_Word_)
-            {
-                str[i] +=32;
-            }
-        }
-        if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= '0' && str[i] <= '9'))
-            {
-                new_Word_ = 0;
-            }
-            else
-            {
-                new_Word_ = 1;
-            }
-            i++;
+        i++;
     }
-    return str;
-   
 }
-/*int main()
+char ft_up(char *str)
 {
-    char array[] = " salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-    ft_strcapitalize(array);
-    printf("%s\n",array);
-}*/
+    int i = 0;
+            if(*str >= 'a' && *str<= 'z')
+            {
+            *str -= 32;
+            }
+    while(*(str + i))
+    {
+        if(*(str + i) == '+' ||*(str + i) == '-' || *(str + i) == ' ')
+        {
+            if(*(str + i + 1) >= 'a' && *(str + i + 1) <= 'z')
+            {
+            *(str + i + 1) -= 32;
+            }
+        }
+        i++;
+    }
+}
+char *ft_strcapitalize(char *str)
+{
+    ft_p(str);
+    ft_up(str);
+    return str;
+}

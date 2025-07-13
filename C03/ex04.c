@@ -1,37 +1,24 @@
-#include <unistd.h>
+#include <stddef.h>
 char *ft_strstr(char *str, char *to_find)
 {
-    int i =0;
-    int len;
-    if (!to_find[0])
-    return str;
- while(str[i])
- {
-    len = 0;
-    while(to_find[len] && str[i + len] && to_find[len] == str[i + len])
+    int i = 0;
+    if(*to_find == '\0')//!this is a !!;
     {
-        len++;
+        return str;
     }
-    if(!to_find[len])
+    int j;
+    while(str[i])
     {
-        return (&str[i]);
+        j = 0;
+        while(str[i + j] == to_find[j] && str[i + j] && to_find[j])
+        {
+            j++;
+        }
+        if(!to_find[j])
+        {
+            return &str[i];
+        }
+        i++;
     }
-    i++;
- }
- return NULL;
+    return NULL;
 }
-/*int main()
-{
-    char array[] = "HI I AM BILAL TARAKI I AM A MORO";
-    char find[] = "BILAL";
-    char *result = ft_strstr(array, find);
-    
-    if (result) {
-        printf("Found substring: %s\n", result);
-    } else {
-        printf("Substring not found.\n");
-    }
-    
-    return 0;
-}
-*/

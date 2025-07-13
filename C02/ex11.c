@@ -1,31 +1,24 @@
 #include <unistd.h>
-//#include <stdio.h>
-void hex_write(unsigned char H)
+void ft_hex(unsigned char c)
 {
-    const char *hex ="0123456789abcdef";
-    write(1 , "\\" , 1);
-    write(1 , &hex[ H / 16] , 1);
-    write(1 , &hex[ H % 16] , 1);
+    char hex[] = "0123456789abcdef";
+    write(1 , "\\" ,1);
+    write(1 , &hex[ c / 16] ,1);
+    write(1 , &hex[ c % 16] ,1);
 }
-
 void ft_putstr_non_printable(char *str)
 {
-    while(*str != '\0')
+    int i = 0;
+    while(str[i])
     {
-        if(*str <= 126 && *str >= 32 )
+        if(str[i] <= 126 && str[i] >= 32)
         {
-            write(1 , str , 1);
+            write(1 , &str[i] ,1);
         }
         else
         {
-            hex_write((unsigned char)*str);
+            ft_hex((unsigned char)str[i]);
         }
-        str++;
+        i++;
     }
 }
-i/*nt main()
-{
-    char array[] = " Coucou\ntu vas bien ?";
-    ft_putstr_non_printable(array);
-    return 0;
-}*/

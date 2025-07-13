@@ -1,25 +1,13 @@
-#include <unistd.h>
-//#include <stdio.h>
 char *ft_strcat(char *dest, char *src)
 {
-    char *start = dest;
-    while(*dest)
-    {
-        dest++;
-    }
     int i = 0;
-    while(src[i])
+    while(dest[i]) i++;
+    int j = 0;
+    while(src[j])
     {
-        dest[i] = src[i];
-        i++;
+        dest[i + j] = src[j];
+        j++;
     }
-    dest[i] = '\0';
-    return (start);
+    dest[i + j] = '\0';
+    return dest;
 }
-/*int main()
-{
-    char array[100] = "HI I AM BILAL ";
-    char skl[50] = "TARAKI";
-    ft_strcat(array, skl);
-    printf("%s\n",array);
-}*/

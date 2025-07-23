@@ -1,40 +1,24 @@
-//#include <stdio.h>
-#include <unistd.h>
+unsigned int ft_strlen(char *str)
+{
+    unsigned int i = 0;
+    while(str[i]) i++;
+    return i;
+}
 unsigned int ft_strlcat(char *dest, char *src, unsigned int size)
 {
     unsigned int i = 0;
     unsigned int j = 0;
-    unsigned int res = 0;
-    while(dest[i] != '\0')
+    unsigned int len_s = ft_strlen(src);
+    while(dest[i] && i < size) i++;
+    if(i == size)
     {
-        i++;
+        return (size + len_s );
     }
-    while(src[res])
+    while(src[j] && i + j < size - 1)
     {
-        res++;
-    }
-    if(size <= i)
-    {
-        res += size;
-    }
-    else
-    {
-        res += i;
-    }
-    while(src[j] && i < size -1)
-    {
-        dest[i] = src[j];
+        dest[i + j] = src[j];
         j++;
-        i++;
     }
-        dest[i] = '\0';
-    return res;
+        dest[i + j] = '\0';
+    return (i + len_s);
 }
-/*int main()
-{
-    char dest[7] = " HI";
-    char src[] = " BILAL TARAKI ";
-    unsigned  int i = ft_strlcat(dest,src,30);
-    printf("%s\n",dest);
-    printf("%d\n",i);
-}*/
